@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import UserCard from "./UserCard";
 
 
+
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
   console.log(feed);
@@ -16,7 +17,7 @@ const Feed = () => {
     try {
     const res = await axios.get(BASE_URL+"/feed",
     {withCredentials:true});
-    dispatch(addFeed(res.data));
+    dispatch(addFeed(res?.data?.data));
     } catch (err) {
       console.log(err);
     }
